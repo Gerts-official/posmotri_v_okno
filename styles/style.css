@@ -8,6 +8,7 @@ html {
   block-size: 100%;
 }
 
+/* PAGE */
 .page {
   inline-size: 1200px;
   block-size: 100%;
@@ -39,6 +40,7 @@ ol {
   list-style: none;
 }
 
+/*CONTENT*/
 .content {
   display: flex;
   align-items: end;
@@ -52,6 +54,7 @@ ol {
   gap: 16px;
 }
 
+/* SECTION 1: VIDEO & SEARCH */
 .result__video-container {
   inline-size: 711px;
   block-size: 386px;
@@ -62,16 +65,13 @@ ol {
   position: absolute;
 }
 
-.content__list {
-  position: relative;
-}
-
 .result__video {
   object-fit: cover;
   inline-size: 100%;
   block-size: 100%;
 }
 
+/* SEARCH-FORM: SIZES */
 .search-form {
   display: flex;
   gap: 40px;
@@ -90,38 +90,11 @@ ol {
   min-inline-size: 212px;
 }
 
-.search-form__checkbox-list {
-  display: flex;
-  gap: 15px;
-}
-
-.search-form__label {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.button {
-  block-size: 34px;
-  background-color: transparent;
-  border: solid 1px #fff;
-  color: #fff;
-  text-align: center;
-  font-family: "Fira Sans Condensed";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
 .search-form__submit-button {
   min-inline-size: 194px;
 }
 
-.more-button {
-  inline-size: 100%;
-}
-
+/* SEARCH-FORM: TITLE CITY & TIME */
 .search-form__fieldset-title {
   color: #fff;
   font-family: "Fira Sans Condensed";
@@ -131,64 +104,63 @@ ol {
   line-height: normal;
 }
 
+.search-form__label-text {
+  appearance: none;
+}
+
 .search-form__textfield {
+  font-weight: 400;
   background-color: transparent;
   border: none;
   border-block-start: solid 1px white;
   border-block-end: solid 1px white;
   inline-size: 100%;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
-  font-family: "Fira Sans Condensed";
+}
+
+/* SEARCH-FORM: TIME */
+.search-form__label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+/* SEARCH-FORM: BUTTON */
+.button {
+  block-size: 34px;
+  background-color: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+  text-align: center;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
 }
 
-.content__video-card {
-  display: flex;
-  justify-content: start;
-}
+/* SECTION 2: CONTENT */
 
 .content__details {
+  display: flex;
+  flex-direction: column;
   block-size: 100%;
   inline-size: 100%;
-  display: flex;
-  flex-direction: column;
   gap: 26px;
-}
-
-.content__list {
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.content__list-item {
-  block-size: 104px;
-  inline-size: 394px;
-}
-
-.content__card-link {
-  block-size: 100%;
-  text-decoration: none;
-}
-
-.content__list-item .content__card-link {
-  display: block;
-  block-size: 100%;
-  text-decoration: none;
-}
-
-.content__video-card-thumbnail {
-  background-size: cover;
-  inline-size: 194px;
 }
 
 .title {
   color: #fff;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
@@ -200,19 +172,55 @@ ol {
   color: #545050;
 }
 
+.content__list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  block-size: 298px;
+  overflow-y: auto;
+  gap: 30px;
+
+}
+
+.content__list-item {
+  block-size: 104px;
+  inline-size: 396px;
+  padding-left: 2px;    
+  padding-top: 2px;  
+}
+
+.content__card-link {
+  block-size: 100%;
+  text-decoration: none;
+  display: block;
+  block-size: 100%;
+  text-decoration: none;
+}
+
+
+
+.content__video-card {
+  display: flex;
+  justify-content: start;
+}
+
 .content__video-card-description-container {
   inline-size: 100%;
-  /* padding-right: 15px; */
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 6px;
-  /* overflow:hidden; */
+}
+
+.content__video-card-thumbnail {
+  object-fit: cover;
+  inline-size: 194px;
+  block-size: 103px;
 }
 
 .content__video-card-title {
   color: #fff;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
@@ -226,12 +234,34 @@ ol {
 .content__video-card-description {
   color: #fff;
   padding-right: 15px;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16.2px; /* 90% */
+  line-height: 16.2px;
 }
+
+
+.more-button {
+  inline-size: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .visually-hidden {
   position: absolute;
@@ -286,10 +316,6 @@ input[type="checkbox"] + span:hover {
   color: #fff;
 }
 
-.search-form__label-text {
-  appearance: none;
-}
-
 input[type="text"]:active {
   border: solid 1px #fff;
 }
@@ -318,12 +344,12 @@ input[type="text"]:focus-visible {
 }
 
 input[type="checkbox"]:focus-visible + span::before {
-content: '';
-position: absolute;
-outline: solid 1px #fff;
-top: -2px;
-left: -2px;
-right: -2px;
-bottom: -2px;
-inline-size: 65px;
+  content: "";
+  position: absolute;
+  outline: solid 1px #fff;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  inline-size: 65px;
 }
