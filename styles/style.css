@@ -96,12 +96,12 @@ ol {
 
 /* SEARCH-FORM: TITLE CITY & TIME */
 .search-form__fieldset-title {
-  color: #fff;
   font-family: "Fira Sans Condensed";
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: #fff;
 }
 
 .search-form__label-text {
@@ -132,24 +132,30 @@ ol {
   gap: 15px;
 }
 
-
+input[type="checkbox"] + span {
+  display: inline-block;
+  position: relative;
+  inline-size: 20px;
+  block-size: 20px;
+  border: solid 1px #fff;
+  background-color: transparent;
+}
 
 /* SEARCH-FORM: BUTTON */
 .button {
   block-size: 34px;
-  background-color: transparent;
   border: solid 1px #fff;
-  color: #fff;
-  text-align: center;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
+  text-align: center;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  background-color: transparent;
+  color: #fff;
 }
 
 /* SECTION 2: CONTENT */
-
 .content__details {
   display: flex;
   flex-direction: column;
@@ -159,13 +165,13 @@ ol {
 }
 
 .title {
-  color: #fff;
   font-family: Oswald, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
   line-height: 94%;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .content__accent {
@@ -177,27 +183,26 @@ ol {
   flex-direction: column;
   position: relative;
   block-size: 298px;
-  overflow-y: auto;
   gap: 30px;
-
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .content__list-item {
   block-size: 104px;
-  inline-size: 396px;
-  padding-left: 2px;    
-  padding-top: 2px;  
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
 .content__card-link {
-  block-size: 100%;
-  text-decoration: none;
   display: block;
   block-size: 100%;
   text-decoration: none;
 }
 
-
+.content__card-link_current {
+  background-color: gray;
+}
 
 .content__video-card {
   display: flex;
@@ -205,11 +210,15 @@ ol {
 }
 
 .content__video-card-description-container {
-  inline-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
+  inline-size: 100%;
   gap: 6px;
+  /* P.S. Паддинг не нужен по заданию но 
+  мне совсем не нравится как выглядит */
+  padding-inline-start: 5px;
+  padding-block-start: 5px;
 }
 
 .content__video-card-thumbnail {
@@ -219,21 +228,18 @@ ol {
 }
 
 .content__video-card-title {
-  color: #fff;
+  padding-inline-end: 5px;
+  white-space: nowrap;
   font-family: Oswald, sans-serif;
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
-  max-inline-size: 200px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-inline-end: 15px;
+  color: #fff;
 }
 
 .content__video-card-description {
   color: #fff;
-  padding-right: 15px;
+  padding-inline-end: 15px;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -241,87 +247,23 @@ ol {
   line-height: 16.2px;
 }
 
-
 .more-button {
   inline-size: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+/* PSEUDO */
+.search-form__label:focus-visible {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
 }
-
-/*CHECK BOXES */
-
-input[type="checkbox"] + span {
-  background-color: transparent;
-  border: solid 1px #fff;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  position: relative;
-}
-
-input[type="checkbox"]:checked + span {
-  background-color: #fff;
-  outline: solid 1px #000;
-  outline-offset: -2px;
-}
-
-input[type="checkbox"] + span:hover {
-  cursor: pointer;
-}
-
 .search-form__label-text:hover {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.button:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.button:active {
-  background-color: #545050;
-}
-
-.content__card-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  color: #fff;
-}
-
 input[type="text"]:active {
   border: solid 1px #fff;
-}
-
-.content__video-card:active {
-  background-color: #545050;
 }
 
 input[type="text"]:focus-visible {
@@ -329,18 +271,14 @@ input[type="text"]:focus-visible {
   outline-offset: 1px;
 }
 
-.button:focus-visible {
-  outline: solid 1px #fff;
-  outline-offset: 1px;
+input[type="checkbox"] + span:hover {
+  cursor: pointer;
 }
 
-.search-form__label:focus-visible {
-  outline: solid 1px #fff;
-  outline-offset: 1px;
-}
-
-.content__card-link:focus-visible {
-  outline: solid 1px #fff;
+input[type="checkbox"]:checked + span {
+  background-color: #fff;
+  outline: solid 1px #000;
+  outline-offset: -2px;
 }
 
 input[type="checkbox"]:focus-visible + span::before {
@@ -352,4 +290,43 @@ input[type="checkbox"]:focus-visible + span::before {
   right: -2px;
   bottom: -2px;
   inline-size: 65px;
+}
+
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.button:active {
+  background-color: #545050;
+}
+.button:focus-visible {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: #fff;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus-visible {
+  outline: solid 1px #fff;
+}
+
+/* OTHER */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
