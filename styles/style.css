@@ -11,7 +11,7 @@ html {
 /* PAGE */
 .page {
   inline-size: 1200px;
-  /* block-size: 800px; */
+  block-size: 100%;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -19,6 +19,7 @@ html {
   background-color: #1b1919;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -61,10 +62,6 @@ ol {
   position: relative;
 }
 
-.preloader {
-  position: absolute;
-}
-
 .result__video {
   object-fit: cover;
   inline-size: 100%;
@@ -79,6 +76,9 @@ ol {
 }
 
 .search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   border: none;
 }
 
@@ -88,6 +88,7 @@ ol {
 
 .search-form__fieldset:nth-child(2) {
   min-inline-size: 212px;
+  margin-block-end: 5px;
 }
 
 .search-form__submit-button {
@@ -96,7 +97,7 @@ ol {
 
 /* SEARCH-FORM: TITLE CITY & TIME */
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -109,6 +110,7 @@ ol {
 }
 
 .search-form__textfield {
+  appearance: none;
   font-weight: 400;
   background-color: transparent;
   border: none;
@@ -117,7 +119,7 @@ ol {
   inline-size: 100%;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 /* SEARCH-FORM: TIME */
@@ -132,9 +134,8 @@ ol {
   gap: 15px;
 }
 
-input[type="checkbox"] + span {
+.search-form__pseudo-checkbox {
   display: inline-block;
-  position: relative;
   inline-size: 20px;
   block-size: 20px;
   border: solid 1px #fff;
@@ -183,15 +184,17 @@ input[type="checkbox"] + span {
   flex-direction: column;
   position: relative;
   block-size: 298px;
-  gap: 30px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .content__list-item {
   block-size: 104px;
-  padding-left: 2px;
-  padding-top: 2px;
+  padding: 2px;
+}
+
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
 }
 
 .content__card-link {
@@ -201,24 +204,19 @@ input[type="checkbox"] + span {
 }
 
 .content__card-link_current {
-  background-color: gray;
+  background-color: #545050;
 }
 
 .content__video-card {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
 }
 
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  inline-size: 100%;
   gap: 6px;
-  /* P.S. Паддинг не нужен по заданию но 
-  мне совсем не нравится как выглядит */
-  padding-inline-start: 5px;
-  padding-block-start: 5px;
 }
 
 .content__video-card-thumbnail {
@@ -228,7 +226,6 @@ input[type="checkbox"] + span {
 }
 
 .content__video-card-title {
-  padding-inline-end: 5px;
   white-space: nowrap;
   font-family: Oswald, sans-serif;
   font-size: 30px;
@@ -239,7 +236,6 @@ input[type="checkbox"] + span {
 
 .content__video-card-description {
   color: #fff;
-  padding-inline-end: 15px;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -252,23 +248,27 @@ input[type="checkbox"] + span {
 }
 
 /* PSEUDO */
-.search-form__label:focus-visible {
-  outline: solid 1px #fff;
-  outline-offset: 1px;
+.search-form__label:has(:focus) {
+  outline: none;
 }
-.search-form__label-text:hover {
+
+.search-form__label:has(:focus-visible) {
+  outline: solid 1px #fff;
+  outline-offset: 2px;
+}
+
+.search-form__textfield:focus-visible {
+  outline: none;
+}
+
+.search-form__label:hover .search-form__label-text {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-input[type="text"]:active {
+.search-form__textfield:active {
   border: solid 1px #fff;
-}
-
-input[type="text"]:focus-visible {
-  outline: solid 1px #fff;
-  outline-offset: 1px;
 }
 
 input[type="checkbox"] + span:hover {
@@ -281,17 +281,6 @@ input[type="checkbox"]:checked + span {
   outline-offset: -2px;
 }
 
-input[type="checkbox"]:focus-visible + span::before {
-  content: "";
-  position: absolute;
-  outline: solid 1px #fff;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  inline-size: 65px;
-}
-
 .button:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -300,9 +289,14 @@ input[type="checkbox"]:focus-visible + span::before {
 .button:active {
   background-color: #545050;
 }
+
+.button:focus {
+  outline: none;
+}
+
 .button:focus-visible {
   outline: solid 1px #fff;
-  outline-offset: 1px;
+  outline-offset: -3px;
 }
 
 .content__card-link:hover {
@@ -311,8 +305,12 @@ input[type="checkbox"]:focus-visible + span::before {
   color: #fff;
 }
 
-.content__video-card:active {
+.content__card-link:active {
   background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
 }
 
 .content__card-link:focus-visible {
